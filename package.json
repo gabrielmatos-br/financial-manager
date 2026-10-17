@@ -1,0 +1,22 @@
+{
+  "name": "financial-manager",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Sistema de gestão de contas a receber.",
+  "author": "Gabriel Matos",
+  "type": "module",
+  "engines": {
+    "node": ">=22.6"
+  },
+  "scripts": {
+    "postinstall": "node scripts/setup.js && cd server && npm install && cd ../web && npm install",
+    "check": "biome check ./",
+    "fix": "biome check --write ./",
+    "fix:unsafe": "biome check --write --unsafe ./",
+    "dev": "concurrently \"npm run dev -w server\" \"npm run dev -w web\""
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.5.15",
+    "concurrently": "^10.0.6"
+  }
+}
